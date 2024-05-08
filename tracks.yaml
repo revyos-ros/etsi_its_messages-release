@@ -14,7 +14,7 @@ tracks:
     name: etsi_its_messages
     patches: null
     release_inc: '1'
-    release_repo_url: git@github.com:ika-rwth-aachen/etsi_its_messages-release.git
+    release_repo_url: git@github.com:revyos-ros/etsi_its_messages-release.git
     release_tag: v:{version}
     ros_distro: humble
     vcs_type: git
