@@ -1,0 +1,12 @@
+Source: ros-jazzy-etsi-its-denm-msgs
+Section: misc
+Priority: optional
+Maintainer: Jean-Pierre Busch <jean-pierre.busch@rwth-aachen.de>
+Build-Depends: debhelper (>= 9.0.0), ros-jazzy-ros-environment, ros-jazzy-rosidl-default-generators, ros-jazzy-std-msgs, ros-jazzy-ros-workspace, ros-jazzy-rosidl-typesupport-fastrtps-c, ros-jazzy-rosidl-typesupport-fastrtps-cpp
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-etsi-its-denm-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jazzy-ros-environment, ros-jazzy-rosidl-default-runtime, ros-jazzy-std-msgs, ros-jazzy-ros-workspace
+Description: ROS messages for ETSI ITS DENM
