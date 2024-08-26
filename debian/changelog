@@ -1,0 +1,21 @@
+ros-humble-etsi-its-primitives-conversion (2.0.2-1bookworm) bookworm; urgency=high
+
+  * Merge pull request #16 from v0-e/ambig_toros_integer
+    Explicit toRos_INTEGER(const long&, int64_t&)
+  * Contributors: Lennart Reiher
+
+ -- Jean-Pierre Busch <jean-pierre.busch@rwth-aachen.de>  Thu, 30 May 2024 16:00:00 -0000
+
+ros-humble-etsi-its-primitives-conversion (2.0.1-1bookworm) bookworm; urgency=high
+
+
+
+ -- Jean-Pierre Busch <jean-pierre.busch@rwth-aachen.de>  Mon, 26 Feb 2024 16:00:00 -0000
+
+ros-humble-etsi-its-primitives-conversion (2.0.0-1bookworm) bookworm; urgency=high
+
+
+
+ -- Jean-Pierre Busch <jean-pierre.busch@rwth-aachen.de>  Thu, 04 Jan 2024 16:00:00 -0000
+
+
