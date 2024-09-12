@@ -1,4 +1,4 @@
-release_repo_url: git@github.com:revyos-ros/etsi_its_messages-release
+release_repo_url: git@github.com:revyos-ros/etsi_its_messages-release.git
 tracks:
   humble:
     actions:
