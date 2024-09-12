@@ -1,3 +1,45 @@
+## etsi_its_messages (humble) - 2.2.0-1
+
+The packages in the `etsi_its_messages` repository were released into the `humble` distro by running `/home/z572/gits/revyos-ros/venv/bin/bloom-release -r humble etsi_its_messages --override-release-repository-push-url git@github.com:revyos-ros/etsi_its_messages-release.git` on `Thu, 12 Sep 2024 03:53:20 -0000`
+
+These packages were released:
+- `etsi_its_cam_coding`
+- `etsi_its_cam_conversion`
+- `etsi_its_cam_msgs`
+- `etsi_its_cam_ts_coding`
+- `etsi_its_cam_ts_conversion`
+- `etsi_its_cam_ts_msgs`
+- `etsi_its_coding`
+- `etsi_its_conversion`
+- `etsi_its_cpm_ts_coding`
+- `etsi_its_cpm_ts_conversion`
+- `etsi_its_cpm_ts_msgs`
+- `etsi_its_denm_coding`
+- `etsi_its_denm_conversion`
+- `etsi_its_denm_msgs`
+- `etsi_its_messages`
+- `etsi_its_msgs`
+- `etsi_its_msgs_utils`
+- `etsi_its_primitives_conversion`
+- `etsi_its_rviz_plugins`
+
+Version of package(s) in repository `etsi_its_messages`:
+
+- upstream repository: https://github.com/ika-rwth-aachen/etsi_its_messages.git
+- release repository: https://github.com/revyos-ros/etsi_its_messages-release.git
+- rosdistro version: `2.2.0-1`
+- old version: `2.0.2-1`
+- new version: `2.2.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## etsi_its_messages (jazzy) - 2.0.2-1
 
 The packages in the `etsi_its_messages` repository were released into the `jazzy` distro by running `/home/z572/gits/revyos-ros/venv/bin/bloom-release -r jazzy etsi_its_messages --override-release-repository-push-url git@github.com:revyos-ros/etsi_its_messages-release` on `Tue, 18 Jun 2024 05:47:28 -0000`
