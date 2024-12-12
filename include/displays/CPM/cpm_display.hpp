@@ -24,9 +24,9 @@ SOFTWARE.
 
 #pragma once
 
-#include "etsi_its_cam_msgs/msg/cam.hpp"
+#include "etsi_its_cpm_ts_msgs/msg/collective_perception_message.hpp"
 
-#include "displays/CAM/cam_render_object.hpp"
+#include "displays/CPM/cpm_render_object.hpp"
 
 #include "rviz_common/ros_topic_display.hpp"
 #include "rviz_rendering/objects/movable_text.hpp"
@@ -34,47 +34,41 @@ SOFTWARE.
 
 #include <rclcpp/rclcpp.hpp>
 
-namespace Ogre
-{
+namespace Ogre {
 class ManualObject;
 }
 
-namespace rviz_common
-{
-namespace properties
-{
-  class ColorProperty;
-  class FloatProperty;
+namespace rviz_common {
+namespace properties {
+class BoolProperty;
+class ColorProperty;
+class FloatProperty;
 }  // namespace properties
 }  // namespace rviz_common
 
-namespace etsi_its_msgs
-{
-namespace displays
-{
+namespace etsi_its_msgs {
+namespace displays {
 
 /**
- * @class CAMDisplay
- * @brief Displays an etsi_its_cam_msgs::CAM
+ * @class CPMDisplay
+ * @brief Displays an etsi_its_cpm_msgs::CollectivePerceptionMessage
  */
-class CAMDisplay : public
-  rviz_common::RosTopicDisplay<etsi_its_cam_msgs::msg::CAM>
-{
+class CPMDisplay : public rviz_common::RosTopicDisplay<etsi_its_cpm_ts_msgs::msg::CollectivePerceptionMessage> {
   Q_OBJECT
 
-public:
-  CAMDisplay();
-  ~CAMDisplay() override;
+ public:
+  CPMDisplay();
+  ~CPMDisplay() override;
 
   void onInitialize() override;
 
   void reset() override;
 
-protected:
-  void processMessage(etsi_its_cam_msgs::msg::CAM::ConstSharedPtr msg) override;
+ protected:
+  void processMessage(etsi_its_cpm_ts_msgs::msg::CollectivePerceptionMessage::ConstSharedPtr msg) override;
   void update(float wall_dt, float ros_dt) override;
 
-  Ogre::ManualObject * manual_object_;
+  Ogre::ManualObject *manual_object_;
 
   rclcpp::Node::SharedPtr rviz_node_;
 
@@ -83,7 +77,8 @@ protected:
   rviz_common::properties::FloatProperty *buffer_timeout_, *bb_scale_, *char_height_;
   rviz_common::properties::ColorProperty *color_property_, *text_color_property_;
 
-  std::unordered_map<int, CAMRenderObject> cams_;
+  std::unordered_map<int, CPMRenderObject> cpms_;
+
   std::vector<std::shared_ptr<rviz_rendering::Shape>> bboxs_;
   std::vector<std::shared_ptr<rviz_rendering::MovableText>> texts_;
 };

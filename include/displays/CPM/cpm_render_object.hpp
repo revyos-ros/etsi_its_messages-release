@@ -22,14 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ============================================================================= */
 
-#include "etsi_its_cam_msgs/msg/cam.hpp"
+#include "etsi_its_cpm_ts_msgs/msg/collective_perception_message.hpp"
+#include <geometry_msgs/msg/point_stamped.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 #include <geometry_msgs/msg/vector3.hpp>
 #include <std_msgs/msg/header.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 #include <tf2/LinearMath/Quaternion.h>
-#include <etsi_its_msgs_utils/cam_access.hpp>
+#include <etsi_its_msgs_utils/cpm_ts_access.hpp>
 
 #include "rviz_common/validate_floats.hpp"
 
@@ -39,79 +40,53 @@ namespace displays
 {
 
 /**
- * @class CAMRenderObject
- * @brief
+ * @class CPMRenderObject
+ * @brief This class is used to render a CPM object in RViz
  */
-class CAMRenderObject
+class CPMRenderObject
 {
   public:
-    CAMRenderObject(etsi_its_cam_msgs::msg::CAM cam, rclcpp::Time receive_time, uint16_t n_leap_seconds=etsi_its_msgs::LEAP_SECOND_INSERTIONS_SINCE_2004.end()->second);
+    /**
+     * @brief Construct a new CPMRenderObject object from a CPM message
+     *
+     * @param cpm
+     */
+    CPMRenderObject(const etsi_its_cpm_ts_msgs::msg::CollectivePerceptionMessage cpm);
 
     /**
-     * @brief This function validates all float variables that are part of a CAMRenderObject
+     * @brief This function validates all float variables that are part of a CPMRenderObject
      *
      */
     bool validateFloats();
 
     /**
-     * @brief Get age of CAM-object
+     * @brief Get age of CPM-object
      *
      * @param now reference point in time to calculate the age with
      * @return age in seconds as double value
      */
-    double getAge(rclcpp::Time now);
+    double getAge(const rclcpp::Time now);
 
-    /**
-     * @brief Get header of CAM-object
-     *
-     * @return std_msgs::msg::Header
-     */
     std_msgs::msg::Header getHeader();
-
-    /**
-     * @brief Get the StationID of CAM-object
-     *
-     * @return int
-     */
     uint32_t getStationID();
+    geometry_msgs::msg::PointStamped getReferencePosition();
 
-    /**
-     * @brief Get the StationType of CAM-object
-     *
-     * @return int
-     */
-    int getStationType();
+    uint8_t getNumberOfObjects();
+    geometry_msgs::msg::Pose getPoseOfObject(const uint8_t idx);
+    geometry_msgs::msg::Vector3 getDimensionsOfObject(const uint8_t idx);
+    geometry_msgs::msg::Vector3 getVelocityOfObject(const uint8_t idx);
 
-    /**
-     * @brief Get pose of CAM-object
-     *
-     * @return geometry_msgs::msg::Pose
-     */
-    geometry_msgs::msg::Pose getPose();
-
-    /**
-     * @brief Get dimensions of CAM-Object
-     *
-     * @return geometry_msgs::msg::Vector3 (x equals length, y equals width, z equals height)
-     */
-    geometry_msgs::msg::Vector3 getDimensions();
-
-    /**
-     * @brief Get speed of CAM-object
-     *
-     * @return double
-     */
-    double getSpeed();
+    struct Object {
+      geometry_msgs::msg::Pose pose;
+      geometry_msgs::msg::Vector3 dimensions;
+      geometry_msgs::msg::Vector3 velocity;
+    };
 
   private:
-    // member variables
-    std_msgs::msg::Header header;
-    uint32_t station_id;
-    int station_type;
-    geometry_msgs::msg::Pose pose;
-    geometry_msgs::msg::Vector3 dimensions;
-    double speed;
-
+    std_msgs::msg::Header header_;
+    uint32_t station_id_;
+    geometry_msgs::msg::PointStamped reference_position_;
+    std::vector<Object> objects_;
 };
 
 }  // namespace displays
