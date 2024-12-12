@@ -25,35 +25,19 @@ SOFTWARE.
 */
 
 /**
- * @file impl/cam/cam_getters.h
- * @brief Getter functions for the ETSI ITS CAM (EN)
+ * @file cam_ts_access.h
+ * @brief Main CAM access header to include in ROS 1 projects
  */
 
 #pragma once
 
-namespace etsi_its_cam_msgs::access {
-#include <etsi_its_msgs_utils/impl/cdd/cdd_v1-3-1_getters.h>
+// Messages
+#include <etsi_its_cam_ts_msgs/CAM.h>
+#include <geometry_msgs/PointStamped.h>
 
-/**
- * @brief Get the longitudinal acceleration
- *
- * @param longitudinalAcceleration to get the longitudinal acceleration from
- * @return longitudinal acceleration in m/s^2 as decimal number (left is positive)
- */
-inline double getLongitudinalAcceleration(const LongitudinalAcceleration& longitudinal_acceleration) {
-  return ((double)longitudinal_acceleration.longitudinal_acceleration_value.value) * 1e-1;
+namespace etsi_its_cam_ts_msgs {
+    namespace gm = geometry_msgs;
 }
 
-/**
- * @brief Get the lateral acceleration
- *
- * @param lateralAcceleration to get the lateral acceleration from
- * @return lateral acceleration in m/s^2 as decimal number (left is positive)
- */
-inline double getLateralAcceleration(const LateralAcceleration& lateral_acceleration) {
-  return ((double)lateral_acceleration.lateral_acceleration_value.value) * 1e-1;
-}
-
-#include <etsi_its_msgs_utils/impl/cam/cam_getters_common.h>
-
-}  // namespace etsi_its_cam_msgs::access
+// Implementation
+#include <etsi_its_msgs_utils/impl/cam/cam_ts_access.h>

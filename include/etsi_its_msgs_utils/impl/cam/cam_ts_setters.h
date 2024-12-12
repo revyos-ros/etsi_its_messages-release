@@ -25,35 +25,29 @@ SOFTWARE.
 */
 
 /**
- * @file impl/cam/cam_getters.h
- * @brief Getter functions for the ETSI ITS CAM (EN)
+ * @file impl/cam/cam_ts_setters.h
+ * @brief Setter functions for the ETSI ITS CAM (TS)
  */
 
 #pragma once
 
-namespace etsi_its_cam_msgs::access {
-#include <etsi_its_msgs_utils/impl/cdd/cdd_v1-3-1_getters.h>
+#include <etsi_its_msgs_utils/impl/constants.h>
+
+namespace etsi_its_cam_ts_msgs::access {
+
+#include <etsi_its_msgs_utils/impl/cdd/cdd_v2-1-1_setters.h>
+
+#include <etsi_its_msgs_utils/impl/cam/cam_setters_common.h>
 
 /**
- * @brief Get the longitudinal acceleration
+ * @brief Set the ItsPduHeader-object for a CAM
  *
- * @param longitudinalAcceleration to get the longitudinal acceleration from
- * @return longitudinal acceleration in m/s^2 as decimal number (left is positive)
+ * @param cam CAM-Message to set the ItsPduHeader
+ * @param station_id
+ * @param protocol_version
  */
-inline double getLongitudinalAcceleration(const LongitudinalAcceleration& longitudinal_acceleration) {
-  return ((double)longitudinal_acceleration.longitudinal_acceleration_value.value) * 1e-1;
+inline void setItsPduHeader(CAM& cam, const uint32_t station_id, const uint8_t protocol_version = 0) {
+  setItsPduHeader(cam.header, MessageId::CAM, station_id, protocol_version);
 }
 
-/**
- * @brief Get the lateral acceleration
- *
- * @param lateralAcceleration to get the lateral acceleration from
- * @return lateral acceleration in m/s^2 as decimal number (left is positive)
- */
-inline double getLateralAcceleration(const LateralAcceleration& lateral_acceleration) {
-  return ((double)lateral_acceleration.lateral_acceleration_value.value) * 1e-1;
-}
-
-#include <etsi_its_msgs_utils/impl/cam/cam_getters_common.h>
-
-}  // namespace etsi_its_cam_msgs::access
+}  // namespace etsi_its_cam_ts_msgs::access

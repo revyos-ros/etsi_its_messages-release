@@ -2,7 +2,7 @@
 =============================================================================
 MIT License
 
-Copyright (c) 2023 Institute for Automotive Engineering (ika), RWTH Aachen University
+Copyright (c) 2023-2024 Institute for Automotive Engineering (ika), RWTH Aachen University
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,14 +25,20 @@ SOFTWARE.
 */
 
 /**
- * @file impl/cdd/cdd_access.h
- * @brief Main CDD access implementation header
+ * @file cam_ts_access.hpp
+ * @brief Main CAM access header to include in ROS 2 projects
  */
 
 #pragma once
 
-#include <cmath>
+// Messages
+#include <etsi_its_cam_ts_msgs/msg/cam.hpp>
+#include <geometry_msgs/msg/point_stamped.hpp>
 
-#include <etsi_its_msgs_utils/impl/cdd/cdd_checks.h>
-#include <etsi_its_msgs_utils/impl/cdd/cdd_getters.h>
-#include <etsi_its_msgs_utils/impl/cdd/cdd_setters.h>
+namespace etsi_its_cam_ts_msgs {
+    using namespace msg;
+    namespace gm = geometry_msgs::msg;
+}
+
+// Implementation
+#include <etsi_its_msgs_utils/impl/cam/cam_ts_access.h>
