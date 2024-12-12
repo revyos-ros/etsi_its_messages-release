@@ -124,7 +124,7 @@ impl Conversion {
                         is_primitive: member.ty.is_builtin_type(),
                         inner_types: self.get_inner_types_names(&member.ty),
                 },
-                is_optional: member.is_optional,
+                is_optional: member.is_optional && (member.default_value.is_none() || self.value_to_tokens(member.default_value.as_ref().unwrap(), None).unwrap() != "0"),
                 has_default: member.default_value.is_some(),
             })
         .collect::<Vec<NamedSeqMember>>()
@@ -158,7 +158,7 @@ impl Conversion {
             ASN1Type::Integer(i) => (i.constraints.clone(), "INTEGER".into()),
             ASN1Type::Real(_) => (vec![], "float64".into()),
             ASN1Type::ObjectIdentifier(_o) => todo!(),
-            ASN1Type::BitString(_b) => todo!(),
+            ASN1Type::BitString(b) => (b.constraints.clone(), "uint8[]".into()),
             ASN1Type::OctetString(o) => (o.constraints.clone(), "uint8[]".into()),
             ASN1Type::GeneralizedTime(_o) => todo!(),
             ASN1Type::UTCTime(_o) => todo!(),
