@@ -25,35 +25,25 @@ SOFTWARE.
 */
 
 /**
- * @file impl/cam/cam_getters.h
- * @brief Getter functions for the ETSI ITS CAM (EN)
+ * @file cpm_ts_access.hpp
+ * @brief Main CPM access header to include in ROS 2 projects
  */
 
 #pragma once
 
-namespace etsi_its_cam_msgs::access {
-#include <etsi_its_msgs_utils/impl/cdd/cdd_v1-3-1_getters.h>
+// Messages
+#include <etsi_its_cpm_ts_msgs/msg/collective_perception_message.hpp>
+#include <geometry_msgs/msg/point_stamped.hpp>
+#include <geometry_msgs/msg/pose.hpp>
+#include <geometry_msgs/msg/pose_with_covariance.hpp>
+#include <geometry_msgs/msg/quaternion.hpp>
+#include <geometry_msgs/msg/vector3.hpp>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
-/**
- * @brief Get the longitudinal acceleration
- *
- * @param longitudinalAcceleration to get the longitudinal acceleration from
- * @return longitudinal acceleration in m/s^2 as decimal number (left is positive)
- */
-inline double getLongitudinalAcceleration(const LongitudinalAcceleration& longitudinal_acceleration) {
-  return ((double)longitudinal_acceleration.longitudinal_acceleration_value.value) * 1e-1;
-}
+namespace etsi_its_cpm_ts_msgs {
+using namespace msg;
+namespace gm = geometry_msgs::msg;
+}  // namespace etsi_its_cpm_ts_msgs
 
-/**
- * @brief Get the lateral acceleration
- *
- * @param lateralAcceleration to get the lateral acceleration from
- * @return lateral acceleration in m/s^2 as decimal number (left is positive)
- */
-inline double getLateralAcceleration(const LateralAcceleration& lateral_acceleration) {
-  return ((double)lateral_acceleration.lateral_acceleration_value.value) * 1e-1;
-}
-
-#include <etsi_its_msgs_utils/impl/cam/cam_getters_common.h>
-
-}  // namespace etsi_its_cam_msgs::access
+// Implementation
+#include <etsi_its_msgs_utils/impl/cpm/cpm_ts_access.h>
