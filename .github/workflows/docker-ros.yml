@@ -11,7 +11,7 @@ jobs:
         with:
           platform: amd64
           target: dev,run
-          image-tag: ros
+          image-tag: ros-noetic
           base-image: rwthika/ros:noetic
           command: roslaunch etsi_its_conversion converter.ros1.launch
           enable-industrial-ci: 'true'
@@ -24,21 +24,8 @@ jobs:
         with:
           platform: amd64
           target: dev,run
-          image-tag: ros2
+          image-tag: ros2-humble
           base-image: rwthika/ros2:humble
-          command: ros2 launch etsi_its_conversion converter.launch.py
-          enable-industrial-ci: 'true'
-          enable-recursive-vcs-import: 'false'
-
-  ros2-iron:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ika-rwth-aachen/docker-ros@main
-        with:
-          platform: amd64
-          target: dev,run
-          image-tag: ros2-iron
-          base-image: rwthika/ros2:iron
           command: ros2 launch etsi_its_conversion converter.launch.py
           enable-industrial-ci: 'true'
           enable-recursive-vcs-import: 'false'
@@ -51,9 +38,8 @@ jobs:
           platform: amd64
           target: dev,run
           image-tag: ros2-jazzy
-          base-image: ubuntu:24.04
-          ros-distro: jazzy
+          enable-push-as-latest: 'true'
+          base-image: rwthika/ros2:jazzy
           command: ros2 launch etsi_its_conversion converter.launch.py
           enable-industrial-ci: 'true'
-          enable-push-as-latest: 'true'
           enable-recursive-vcs-import: 'false'
