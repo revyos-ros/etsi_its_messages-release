@@ -2,6 +2,12 @@
 Changelog for package etsi_its_cam_ts_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.2.1 (2025-05-16)
+------------------
+
+3.2.0 (2025-04-22)
+------------------
+
 3.1.0 (2025-02-17)
 ------------------
 * Merge pull request `#67 <https://github.com/ika-rwth-aachen/etsi_its_messages/issues/67>`_ from ika-rwth-aachen/update-copyright
