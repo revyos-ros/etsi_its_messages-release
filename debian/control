@@ -1,0 +1,12 @@
+Source: ros-jazzy-etsi-its-cam-conversion
+Section: misc
+Priority: optional
+Maintainer: Jean-Pierre Busch <jean-pierre.busch@rwth-aachen.de>
+Build-Depends: debhelper (>= 9.0.0), ros-jazzy-ament-cmake, ros-jazzy-etsi-its-cam-coding, ros-jazzy-etsi-its-cam-msgs, ros-jazzy-etsi-its-primitives-conversion, ros-jazzy-ros-environment, ros-jazzy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-etsi-its-cam-conversion
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jazzy-etsi-its-cam-coding, ros-jazzy-etsi-its-cam-msgs, ros-jazzy-etsi-its-primitives-conversion, ros-jazzy-ros-environment, ros-jazzy-ros-workspace
+Description: Conversion functions for converting ROS messages to and from ASN.1-encoded ETSI ITS CAMs
